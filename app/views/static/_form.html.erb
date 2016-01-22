@@ -1,0 +1,23 @@
+<%= form_for([@invoice, @invoice.items.build]) do |f| %>
+	<td>
+		<%= f.label :date, class: "sr-only" %><br>
+		<%= date_select :item, :date, class: "form-control" %>
+	</td>
+	<td>
+		<%= f.label :matter_id, class: "sr-only" %><br>
+		<%= f.select(:matter_id) do %>
+		  <% @matters.each do |matter| %>
+		    <%= content_tag(:option, matter.name, value: matter.id) %>
+		  <% end %>
+		<% end %>
+	</td>
+	<td>
+		<%= f.label :desc, class: "sr-only" %><br>
+		<%= f.text_field :desc, class: "form-control" %>
+	</td>
+	<td>
+		<%= f.label :hours, class: "sr-only" %><br>
+		<%= f.text_field :hours, class: "form-control" %>
+		<%= f.submit %>
+	</td>
+<% end %>

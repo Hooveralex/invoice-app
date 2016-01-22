@@ -1,0 +1,21 @@
+<%= form_for([@invoice, @invoice.expenses.build]) do |f| %>
+	<div class="form-inline form-justified">
+		<div class="form-group">
+			<%= f.label :matter_id %><br>
+			<%= f.select(:matter_id) do %>
+			  <% @matters.each do |matter| %>
+			    <%= content_tag(:option, matter.name, value: matter.id) %>
+			  <% end %>
+			<% end %>
+		</div>
+		<div class="form-group">
+			<%= f.label :desc %><br>
+			<%= f.text_field :desc, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :amount %><br>
+			<%= f.text_field :amount, class: "form-control" %>
+			<%= f.submit %>
+		</div>
+	</div>
+<% end %>

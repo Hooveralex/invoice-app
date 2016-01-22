@@ -1,0 +1,17 @@
+<div class="invoice-cards container">
+	<div class="row">
+		<div class="card col-md-3 col-sm-12">
+			<%= link_to "Today", {controller: "static", action: "today"} %>
+		</div>
+		<div class="card col-md-3 col-sm-12">
+			<%= link_to 'New Invoice', new_invoice_path %>
+		</div>
+		<% @invoices.each do |invoice| %>
+			<div class="card col-md-3 col-sm-12">
+				<%= link_to "Invoice #{invoice.id} <br>(#{invoice.start_date.to_formatted_s(:long)} - #{invoice.end_date.to_formatted_s(:long)})".html_safe, invoice_path(invoice) %>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+

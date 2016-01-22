@@ -1,0 +1,11 @@
+<tr>
+	<td>
+		<%= expense.matter.name if expense.matter %>
+	</td>
+	<td><%= expense.desc %></td>
+	<td><%= number_to_currency(expense.amount) %></td>
+	<td class="delete-link"><%= link_to "Delete", [expense.invoice, expense],
+			method: :delete,
+			data: { confirm: "Are you sure?"} %>
+	</td>
+</tr>

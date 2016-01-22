@@ -1,0 +1,35 @@
+<h1>Matters <small></small></h1>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<%= form_for @matter do |f| %>
+			  <td>
+			    <%= f.label :name, class: "sr-only" %>
+			    <%= f.text_field :name %>
+			    <%= f.submit %>
+			  </td>
+			<% end %>
+		</tr>
+		<% @matters.each do |matter| %>
+			<tr>
+				<td><%= matter.id %></td>
+				<td><%= matter.name %></td>
+				<td><%= link_to "Edit", edit_matter_path(matter) %></td>
+				<td>
+					<%= link_to 'Delete', matter_path(matter),
+					  method: :delete,
+					  data: {confirm: "Are you sure?"} %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

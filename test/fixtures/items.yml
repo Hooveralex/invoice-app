@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invoice_id: 
+  date: 2016-01-16
+  desc: MyString
+  matter: 1
+  hours: 1.5
+
+two:
+  invoice_id: 
+  date: 2016-01-16
+  desc: MyString
+  matter: 1
+  hours: 1.5

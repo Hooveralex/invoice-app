@@ -1,0 +1,11 @@
+<tr>
+	<td><%= item.date.to_formatted_s(:short) if item.date %></td>
+	<td><%= item.matter.name if item.matter %></td>
+	<td><%= item.desc %></td>
+	<td><%= item.hours %></td>
+	<td class="delete-link">
+		<%= link_to "Delete", [item.invoice, item],
+			method: :delete,
+			data: { confirm: "Are you sure?"} %>
+	</td>
+</tr>
