@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p><b>Name: </b><%= @user.name %></p>
+<p><b>Email: </b><%= @user.email %></p>
+<p><b>Rate: </b><%= number_to_currency(@user.rate) %></p>
+<p><b>Address: </b></p>
+<%= @user.address %><br>
+<%= @user.address2 %><br>
+<%= @user.city %>, <%= @user.state %><br>
+<%= @user.zip %><br>
+<p><%= link_to "Edit User", edit_user_path(@user) %></p>
