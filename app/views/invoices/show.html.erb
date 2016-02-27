@@ -43,7 +43,7 @@
 			</thead>
 			<tbody>
 				<!-- This calls the _item partial -->
-				<%= render @invoice.items %>	
+				<%= render @invoice.items.order(date: :desc) %>	
 			</tbody>
 		</table>
 	</div>	

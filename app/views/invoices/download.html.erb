@@ -9,7 +9,12 @@
     <div class="document">
 	  <h1 class="title">Alex Hoover Invoice #<%= @invoice.id %></h1>
 	  <p class="title">(<%= @invoice.start_date.to_formatted_s(:long) %> - <%= @invoice.end_date.to_formatted_s(:long) %>)</p>
-	  <h2 class="pull-right">Amount Owed: <small><%= number_to_currency(@owed) %></small></h2>
+	  <h2>
+	  	Total Owed: <small><%= number_to_currency(@owed + @costs) %></small>
+	  </h2>
+	  <h2>
+	  	Payments: <small><%= number_to_currency(@owed) %></small> | Expenses: <small><%= number_to_currency(@costs) %></small>
+	  </h2>
 	  <h2>Invoice for:</h2>
 	  <address>
 		<strong>Alex Hoover</strong><br>
@@ -30,7 +35,7 @@
 	  		</tr>
 	  	</thead>
 	  	<tbody>
-	  		<%= render @invoice.items %>
+	  		<%= render @invoice.items.order(date: :asc) %>
 	  		<tr>
 	  			<td colspan="2"></td>
 	  			<td><b>Total Hours</b></td>
@@ -61,6 +66,11 @@
 	  	</thead>
 	  	<tbody>
 	  		<%= render @invoice.expenses %>
+	  		<tr>
+	  			<td></td>
+	  			<td><b>Total Expenses</b></td>
+	  			<td><%= number_to_currency(@costs) %></td>
+	  		</tr>
 	  	</tbody>
 	  </table>
 	</div>

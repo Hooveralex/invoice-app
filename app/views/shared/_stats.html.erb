@@ -1,1 +1,1 @@
-<p class="pull-right">Amount Owed: <%= number_to_currency(@owed) %> | Total Hours: <%= @hours %></p>
+<p class="pull-right"><b>Total Owed</b>: <%= number_to_currency(@owed + @costs) %> | <b>Payments</b>: <%= number_to_currency(@owed) %> | <b>Expenses</b>: <%= number_to_currency(@costs) %> | <b>Total Hours</b>: <%= @hours %></p>

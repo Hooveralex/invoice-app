@@ -1,4 +1,4 @@
-<h1><%= @today_format %> <%= render "shared/stats" %></h1>
+<h1><%= @today_format %> <small><%= render "shared/stats" %></small></h1>
 <p><%= link_to "Invoice #{@invoice.id} (#{@invoice.start_date.to_formatted_s(:long)} - #{@invoice.end_date.to_formatted_s(:long)})", invoice_path(@invoice) %></p>
 <hr>
 <div class="row">

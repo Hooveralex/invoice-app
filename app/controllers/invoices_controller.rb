@@ -27,7 +27,7 @@ class InvoicesController < ApplicationController
 			end
 		end
 
-		@owed = (@hours * 40) + (@costs || 0)
+		@owed = (@hours * 40)
 
 	end
 
