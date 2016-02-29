@@ -1,21 +1,27 @@
-<div class="invoice-cards container">
-	<div class="row">
-		<div class="col-md-offset-2 col-md-8">
-			<div class="row">
-				<div class="card col-md-3 col-sm-12">
-					<%= link_to "Today", {controller: "static", action: "today"} %>
-				</div>
-				<div class="card col-md-3 col-sm-12">
-					<%= link_to 'New Invoice', new_invoice_path %>
-				</div>
-				<% @invoices.each do |invoice| %>
-					<div class="card col-md-3 col-sm-12">
-						<%= link_to "Invoice #{invoice.id} <br>(#{invoice.start_date.to_formatted_s(:long)} - #{invoice.end_date.to_formatted_s(:long)})".html_safe, invoice_path(invoice) %>
+<% @invoices.each_slice(3) do |invoices| %>
+	<div class="mdl-grid">
+		<% invoices.each do |invoice| %>
+			<div class="mdl-cell--1-col"></div>
+			<div class="mdl-cell--3-col">
+				<div class="mdl-card invoice-card mdl-shadow--2dp">
+					<div class="mdl-card__title mdl-color--green">
+						<h4>
+							<%= "Invoice #{invoice.id}" %>
+							<div class="mdl-card__subtitle-text"><%= "#{invoice.start_date.to_formatted_s(:long)} - #{invoice.end_date.to_formatted_s(:long)}" %></div>
+						</h4>
 					</div>
-				<% end %>
+					<div class="mdl-card__supporting-text">
+						<p><b>Payments</b>: <%= number_to_currency(get_owed(@items,invoice)) %></p>
+						<p><b>Expenses</b>: <%= number_to_currency(get_expenses(@expenses,invoice)) %></p>
+						<p><b>Total</b>: <%= number_to_currency(get_owed(@items,invoice) + get_expenses(@expenses,invoice)) %></p>
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<%= link_to "View", invoice_path(invoice), class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+					</div>
+				</div>
 			</div>
-		</div>
+		<% end %>
 	</div>
-</div>
+<% end %>
 
 

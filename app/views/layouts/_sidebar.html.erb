@@ -1,0 +1,10 @@
+<div class="mdl-layout__drawer">
+	<span class="mdl-layout-title">Invoices</span>
+	<nav class="mdl-navigation">
+		<%= link_to "Home", root_path, class: "mdl-navigation__link" %>
+		<%= link_to "Today", {controller: "static", action: "today"}, class: "mdl-navigation__link" %>
+		<%= link_to 'New Invoice', new_invoice_path, class: "mdl-navigation__link" %>
+		<%= link_to "Invoices", invoices_path, class: "mdl-navigation__link" %>
+		<%= link_to "Matters", invoices_path, class: "mdl-navigation__link" %>
+	</nav>
+</div>

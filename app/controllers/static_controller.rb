@@ -1,14 +1,8 @@
 class StaticController < ApplicationController
   def index
   	@invoices = Invoice.all.reverse
-
-  	@items = Item.all
-  	@items.each do |item|
-		i = 0
-		i += item.hours
-		@owed = i * 40
-		@hours = i
-	end
+    @items = Item.all
+    @expenses = Expense.all
   end
 
   def today
