@@ -1,2 +1,45 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone">
+    <h1>Users <%= link_to 'New User', new_user_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %></h1>
+
+    <table class="mdl-data-table mdl-js-data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th class="mdl-data-table__cell--non-numeric">Name</th>
+          <th class="mdl-data-table__cell--non-numeric">Email</th>
+          <th class="mdl-data-table__cell--non-numeric">Address</th>
+          <th class="mdl-data-table__cell--non-numeric">Address 2</th>
+          <th class="mdl-data-table__cell--non-numeric">City</th>
+          <th class="mdl-data-table__cell--non-numeric">State</th>
+          <th>Zip</th>
+          <th>Rate</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+			<tr>
+				<td class="mdl-data-table__cell--non-numeric"><%= user.id %></td>
+				<td class="mdl-data-table__cell--non-numeric"><%= link_to user.name, user_path(user) %></td>
+				<td class="mdl-data-table__cell--non-numeric"><%= user.email %></td>
+				<td class="mdl-data-table__cell--non-numeric"><%= user.address %></td>
+				<td class="mdl-data-table__cell--non-numeric"><%= user.address2 %></td>
+				<td class="mdl-data-table__cell--non-numeric"><%= user.city %></td>
+				<td class="mdl-data-table__cell--non-numeric"><%= user.state %></td>
+				<td><%= user.zip %></td>
+				<td><%= number_to_currency(user.rate) %></td>
+	            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+	            <td>
+	              <%= link_to 'Delete', user_path(user),
+	                method: :delete,
+	                data: {confirm: "Are you sure you want to delete #{user.name}?"} %>
+	            </td>	
+			</tr>
+        <% end %>
+      </tbody>
+    </table>
+    <p></p>
+  </div>
+</div>
