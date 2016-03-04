@@ -27,11 +27,11 @@
 			<tbody>
 				<% @items.each do |item| %>
 					<tr>
-						<td><%= item.date %></td>
-						<td><%= item.matter.name if item.matter %></td>
-						<td><%= item.desc %></td>
+						<td class="mdl-data-table__cell"><%= item.date %></td>
+						<td class="mdl-data-table__cell--non-numeric"><%= item.matter.name if item.matter %></td>
+						<td class="mdl-data-table__cell--non-numeric"><%= item.desc %></td>
 						<td><%= item.hours %></td>
-						<td><%= link_to "Delete", [item.invoice, item],
+						<td class="mdl-data-table__cell--non-numeric"><%= link_to "Delete", [item.invoice, item],
 								method: :delete,
 								data: { confirm: "Are you sure?"} %>
 						</td>

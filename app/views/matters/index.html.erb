@@ -1,35 +1,36 @@
-<h1>Matters <small></small></h1>
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td></td>
-			<%= form_for @matter do |f| %>
-			  <td>
-			    <%= f.label :name, class: "sr-only" %>
-			    <%= f.text_field :name %>
-			    <%= f.submit %>
-			  </td>
-			<% end %>
-		</tr>
-		<% @matters.each do |matter| %>
-			<tr>
-				<td><%= matter.id %></td>
-				<td><%= matter.name %></td>
-				<td><%= link_to "Edit", edit_matter_path(matter) %></td>
-				<td>
-					<%= link_to 'Delete', matter_path(matter),
-					  method: :delete,
-					  data: {confirm: "Are you sure?"} %>
-				</td>
-			</tr>
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col">
+		<h1>Matters</h1>
+		<%= form_for @matter do |f| %>
+		    <div class="mdl-textfield mdl-js-textfield">
+		    	<%= f.label :name, class: "mdl-textfield__label" %>
+		    	<%= f.text_field :name, class: "mdl-textfield__input" %>
+		    </div>
+		    <%= f.submit "Add", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
 		<% end %>
-	</tbody>
-</table>
+		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th class="mdl-data-table__cell--non-numeric">Name</th>
+					<th class="mdl-data-table__cell"></th>
+					<th class="mdl-data-table__cell"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @matters.each do |matter| %>
+					<tr>
+						<td class="mdl-data-table__cell"><%= matter.id %></td>
+						<td class="mdl-data-table__cell--non-numeric"><%= matter.name %></td>
+						<td class="mdl-data-table__cell--non-numeric"><%= link_to "Edit", edit_matter_path(matter) %></td>
+						<td class="mdl-data-table__cell--non-numeric">
+							<%= link_to 'Delete', matter_path(matter),
+							  method: :delete,
+							  data: {confirm: "Are you sure?"} %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
