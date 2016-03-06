@@ -1,11 +1,11 @@
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--10-col">
+	<div class="mdl-cell mdl-cell--8-col">
 		<h2><%= @today_format %></h2>
 		<div class="mdl-card__subtitle-text">
 			<%= link_to "Invoice #{@invoice.id} (#{@invoice.start_date.to_formatted_s(:long)} - #{@invoice.end_date.to_formatted_s(:long)})", invoice_path(@invoice) %> <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_invoice_path(@invoice) %>
 		</div>
 	</div>
-	<div class="mdl-cell mdl-cell--2-col">
+	<div class="mdl-cell mdl-cell--4-col">
 		<%= render "shared/stats" %>
 	</div>
 </div>

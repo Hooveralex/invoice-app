@@ -3,16 +3,12 @@
 		<tr>
 			<td><b>Payments</b></td>
 			<td><%= number_to_currency(@owed) %></td>
-		</tr>
-		<tr>
 			<td><b>Expenses</b></td>
 			<td><%= number_to_currency(@costs) %></td>
 		</tr>
 		<tr>
 			<td><b>Hours</b></td>
 			<td><%= @hours %></td>
-		</tr>
-		<tr>
 			<td><b>Owed</b></td>
 			<td><%= number_to_currency(@owed + @costs) %></td>
 		</tr>

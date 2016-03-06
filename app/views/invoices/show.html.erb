@@ -1,28 +1,28 @@
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--10-col">
+	<div class="mdl-cell mdl-cell--8-col">
 		<h2>Invoice #<%= @invoice.id %></h2>
 		<div class="mdl-card__subtitle-text">
 			<%= @invoice.start_date.to_formatted_s(:long) %> - <%= @invoice.end_date.to_formatted_s(:long) %> <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_invoice_path(@invoice) %>
 		</div>
 	</div>
-	<div class="mdl-cell mdl-cell--2-col">
+	<div class="mdl-cell mdl-cell--4-col">
 		<%= render "shared/stats" %>
-		<%= button_to 'Download Invoice', download_invoice_path(@invoice, :format => :pdf), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+		<%= button_to 'Download Invoice', download_invoice_path(@invoice, :format => :pdf), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent full-width" %>
 	</div>
 </div>
 
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+	<div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone">
 		<h4>Payments</h4>
 		<%= render "items/form" %>
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width">
 			<thead>
 				<tr>
-					<th>Date</th>
+					<th class="mdl-data-table__cell--non-numeric">Date</th>
 					<th class="mdl-data-table__cell--non-numeric">Matter</th>
 					<th class="mdl-data-table__cell--non-numeric full-width">Description</th>
 					<th class="mdl-data-table__cell">Hours</th>
-					<th></th>
+					<th class="mdl-data-table__cell"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,7 +31,9 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+</div>
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone">
 		<h4>Expenses</h4>
 		<%= render "expenses/form" %>
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width">
@@ -40,7 +42,7 @@
 					<th class="mdl-data-table__cell--non-numeric">Matter</th>
 					<th class="mdl-data-table__cell--non-numeric">Description</th>
 					<th class="mdl-data-table__cell">Amount</th>
-					<th></th>
+					<th class="mdl-data-table__cell"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,7 +52,6 @@
 		</table>
 	</div>
 </div>
-
 <div class="mdl-grid">
 	
 </div>

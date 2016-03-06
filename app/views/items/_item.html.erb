@@ -1,5 +1,5 @@
 <tr>
-	<td><%= item.date.to_formatted_s(:short) if item.date %></td>
+	<td class="mdl-data-table__cell--non-numeric"><%= item.date.to_formatted_s(:short) if item.date %></td>
 	<td class="mdl-data-table__cell--non-numeric"><%= item.matter.name if item.matter %></td>
 	<td class="mdl-data-table__cell--non-numeric"><%= item.desc %></td>
 	<td><%= item.hours %></td>
